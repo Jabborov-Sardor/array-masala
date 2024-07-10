@@ -1,33 +1,44 @@
-let students = [
-  { name: "azamjon", age: 17, grades: [8, 9, 6] },
-  { name: "umarov", age: 18, grades: [8, 7, 2] },
-  { name: "azam", age: 19, grades: [8, 8, 8] },
+const students = [
+  { name: "Baxrom", age: 21, grades: [3, 4, 5] },
+  { name: "Davron", age: 25, grades: [2, 4, 5] },
+  { name: "Ravshan", age: 23, grades: [4, 5] },
 ];
-students.forEach((student) => {
-  let baho =
-    student.grades.reduce((sum, grade) => sum + grade, 0) /
-    student.grades.length;
-  console.log(`${student.name} o'rtacha bahosi ${baho.toFixed(2)}`);
-});
+function student1Grade(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
 
-////// 2 masala /////
+  return Math.floor(sum / arr.length);
+}
+
+for (let i = 0; i < students.length; i++) {
+  console.log(student1Grade(students[i].grades));
+}
+
+/////// 2-masala /////
 const books = [
   { title: "salom", year: 2004, author: "sarvar", ganre: "detektiv" },
   { title: "jangari", year: 2018, author: "anvar", ganre: "tragediya" },
   { title: "kulgi", year: 2013, author: "baxtiyor", ganre: "komediya" },
 ];
-function book1(books1) {
-  return books1.filter((i) => i.year > 2010);
-}
 
-function book2(books2) {
-  return books2.filter((a) => a.year < 2010);
-}
+const allBooks = function (elements) {
+  const newBooks = [];
+  const oldBooks = [];
+  console.log(elements);
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].year > 2010) {
+      newBooks.push(elements[i]);
+    } else {
+      oldBooks.push(elements[i]);
+    }
+  }
+  const result = {
+    oldBooks: oldBooks,
+    newBooks: newBooks,
+  };
+  return result;
+};
 
-let name1 = book1(books);
-console.log("new books");
-console.log(name1);
-
-let name2 = book2(books);
-console.log("old books");
-console.log(name2);
+console.log(allBooks(books));
