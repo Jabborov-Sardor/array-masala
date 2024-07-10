@@ -25,9 +25,9 @@ function book2(books2) {
 }
 
 let name1 = book1(books);
-console.log("yangi kitoblar");
+console.log("new books");
 console.log(name1);
 
 let name2 = book2(books);
-console.log("eski kitoblar");
+console.log("old books");
 console.log(name2);
